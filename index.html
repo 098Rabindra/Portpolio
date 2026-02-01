@@ -18,7 +18,7 @@
 </head>
 
 <body>
-    <!-- Header -->
+
 <!-- Header -->
 <header class="header">
   <a href="#" class="logo">Portfolio</a>
@@ -27,12 +27,13 @@
     <i class='bx bx-time'></i>
     <span id="time"></span>
   </div>
+
   <nav class="navbar">
-    <a href="#" class="active">Home</a>
-    <a href="#about">About</a>
-    <a href="#Project">Project</a>
-    <a href="#Skills">Skills</a>
-    <a href="#contact">Contact</a>
+    <a href="#" style = " --i:1">Home</a>
+    <a href="#about" style = " --i:2">About</a>
+    <a href="#project" style = " --i:3">Project</a>
+    <a href="#Skills" style = " --i:4">Skills</a>
+    <a href="#contact" style = " --i:5">Contact</a>
   </nav>
 </header>
 
@@ -48,13 +49,13 @@
             </p>
 
          <div class="home-sci">
-        <a href="https://www.facebook.com" target="_blank" rel="noopener noreferrer" style="--i:7">
+        <a href="https://www.facebook.com" style = " --i:6"target="_blank" rel="noopener noreferrer" style="--i:7">
          <i class="fa-brands fa-facebook"></i> </a>
-        <a href="https://www.linkedin.com" target="_blank" rel="noopener noreferrer" style="--i:8" title="LinkedIn">
+        <a href="https://www.linkedin.com" style = " --i:7"target="_blank" rel="noopener noreferrer" style="--i:8" title="LinkedIn">
           <i class="fa-brands fa-linkedin-in"></i>  </a>
-        <a href="https://www.twitter.com" target="_blank" rel="noopener noreferrer" style="--i:9">
+        <a href="https://www.twitter.com" style = " --i:8"target="_blank" rel="noopener noreferrer" style="--i:9">
          <i class="fa-brands fa-twitter"></i> </a>
-        <a href="https://www.youtube.com" target="_blank" rel="noopener noreferrer" style="--i:10">
+        <a href="https://www.youtube.com" style = " --i:9"target="_blank" rel="noopener noreferrer" style="--i:10">
         <i class="fa-brands fa-youtube"></i> </a>
         </div>
         
@@ -79,7 +80,7 @@
                 Before starting a new project, I thoroughly research the requirements to ensure that 
                 I tailor a unique online presence aligned with the objectives of a Java developer.
             </p>
-            <a href="cmp.pdf" download class="btn-box">Download CV</a>
+            <a href="Resume.pdf" download class="btn-box">Download CV</a>
 
         </div>
     </section>
@@ -89,15 +90,18 @@
         <div class="container">
             <h1 class="sub-title">My <span>Services</span></h1>
             <div class="services-list">
-             <div> 
-                <i class='bx bx-bar-chart'></i> 
-                    <h4>Data Analyst</h4> 
-                        <p>I extract insights from data to drive strategic decisions. Using tools like SQL, Excel, and Python, 
-                            I transform raw data into actionable intelligence.</p> 
-                            <a href="#" class="read">Learn More</a>
-              </div>
+           <div> 
+                <i class='bx bx-data'></i> 
+                     <h4>SQL Developer</h4> 
+                <p>
+                    I design, develop, and optimize databases to ensure efficient data storage and retrieval.
+                    Using SQL, MySQL, and database management tools.
+                 </p> 
+                <a href="#" class="read">Learn More</a>
+                </div>
+
                 <div>
-                    <i class='bx bx-code-alt'></i>
+                    <i class='bx bxl-java'></i>
                     <h4>Java Developer</h4>
                     <p>I develop scalable Java applications with a strong focus on clean code and efficient backend logic, ensuring reliability and performance.</p>
                     <a href="#" class="read">Learn More</a>
@@ -111,6 +115,31 @@
             </div>
         </div>
     </section>
+   
+<section id="project">
+  <h2>My Projects</h2>
+  <div class="projects-container">
+    <div class="project-card">
+      <img src="images/java-swing.png" alt="Java Swing Project">
+      <h3>Java Swing</h3>
+      <p>A desktop application built using Java Swing.</p>
+      <button class="view-more">View More</button>
+    </div>
+    <div class="project-card">
+      <img src="images/student-management.png" alt="Student Management System">
+      <h3>Student Management System</h3>
+      <p>Manage student data efficiently with CRUD operations.</p>
+      <button class="view-more">View More</button>
+    </div>
+    <div class="project-card">
+      <img src="images/face-recognition.png" alt="Face Recognition System">
+      <h3>Face Recognition</h3>
+      <p>A face recognition system using Python and OpenCV.</p>
+      <button class="view-more">View More</button>
+    </div>
+  </div>
+</section>
+
 
     <!-- Skills Section -->
     <section id="Skills">
@@ -137,7 +166,7 @@
                 <div class="bar">
                     <i style="color: #147bbc" class='bx bxl-java'></i>
                     <div class="info"><span>JAVA</span></div>
-                    <div class="progress-line java"><span data-percent="85%"></span></div>
+                    <div class="progress-line java"><span data-percent="98%"></span></div>
                 </div>
                 <div class="bar">
                     <i style="color: #69bcbc" class='bx bx-data'></i>
