@@ -22,3 +22,42 @@ function updateTime() {
 
 setInterval(updateTime, 1000);
 updateTime();
+
+
+const container = document.querySelector('.projects-container');
+const nextBtn = document.querySelector('.next');
+const prevBtn = document.querySelector('.prev');
+
+let index = 0;
+
+function getVisibleCards() {
+    if (window.innerWidth <= 600) return 1;
+    if (window.innerWidth <= 1024) return 2;
+    return 3;
+}
+
+nextBtn.addEventListener('click', () => {
+    const visible = getVisibleCards();
+    const total = container.children.length;
+    if (index < total - visible) {
+        index++;
+        slide();
+    }
+});
+
+prevBtn.addEventListener('click', () => {
+    if (index > 0) {
+        index--;
+        slide();
+    }
+});
+
+function slide() {
+    const cardWidth = container.children[0].offsetWidth + 40;
+    container.style.transform = `translateX(-${index * cardWidth}px)`;
+}
+
+window.addEventListener('resize', slide);
+
+
+
