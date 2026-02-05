@@ -1187,44 +1187,6 @@ section {
 }
 /* ----------------- Responsive Breakpoints ----------------- */
 
-/* Tablets (max-width: 768px) */
-@media (max-width: 768px) {
-  .project-card {
-    width: 45%; /* Two cards per row */
-  }
-  .project-card img {
-    height: 160px; /* Slightly smaller image */
-  }
-}
-
-/* Mobile Devices (max-width: 480px) */
-@media (max-width: 480px) {
-  .project-card {
-    width: 100%; /* Single card per row */
-  }
-  .project-card img {
-    height: 150px;
-  }
-}
-@media (max-width: 1024px) {
-    .projects-container {
-        gap: 30px;
-    }
-
-    .project-card {
-        width: 45%;
-    }
-}
-
-@media (max-width: 600px) {
-    .projects-container {
-        padding: 40px 15px;
-    }
-
-    .project-card {
-        width: 100%;
-    }
-}
 
 
 
