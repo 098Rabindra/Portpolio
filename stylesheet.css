@@ -12,7 +12,7 @@ body {
     background-color: #0a1b29;
 }
 
-/* Header */
+/* Header Section */
 .header {
     position: fixed;
     top: 0;
@@ -40,29 +40,58 @@ body {
     animation: slideRight 1s ease forwards;
 }
 
+
 .navbar a {
+    position: relative;
     display: inline-block;
     font-size: 25px;
     color: #fff;
     text-decoration: none;
     font-weight: 500;
     margin-left: 35px;
-    transition: 0.3s;
+
+    transition: color 0.3s ease;
     opacity: 0;
     animation: slideTop 0.5s ease forwards;
-    animation-delay: calc(0.1s * var(--i)); /* Starts after header slides in */
+    animation-delay: calc(0.1s * var(--i));
 }
 
-.navbar a:hover {
-    color: #0ef;
+/* Center-out glowing bar */
+.navbar a::after {
+    content: "";
+    position: absolute;
+    left: 50%;
+    bottom: -6px;
+
+    width: 100%;
+    height: 3px;
+
+    background: linear-gradient(90deg, #00ff08, #00e5ff);
+    box-shadow: 
+        0 0 8px #00ff08,
+        0 0 16px #00e5ff;
+
+    transform: translateX(-50%) scaleX(0);
+    transform-origin: center;
+    transition: transform 0.4s ease;
 }
+
+/* Hover */
+.navbar a:hover {
+    color: #00ff08;
+}
+
+.navbar a:hover::after {
+    transform: translateX(-50%) scaleX(1);
+}
+
 
 .timezone-display {
     color: #ededed;
     display: flex;
     align-items: center;
     gap: 6px;
-    font-size: 0.9rem;
+    font-size: 1.2rem;
 }
 
 /* Mobile menu */
@@ -337,10 +366,8 @@ body {
                 0 0 200px cyan;
 }
 
-//* ============================ */
-/* PROJECT SECTION */
-/* ============================ */
 
+/* PROJECT SECTION */
 #project {
     padding: 50px 20px;
     background-color: #0a1b29;
@@ -348,9 +375,6 @@ body {
     text-align: center;
 }
 
-/* ============================ */
-/* SLIDER WRAPPER */
-/* ============================ */
 
 .slider-wrapper {
     position: relative;
@@ -365,10 +389,6 @@ body {
     width: 100%;
 }
 
-/* ============================ */
-/* PROJECTS CONTAINER (SLIDER) */
-/* ============================ */
-
 .projects-container {
     display: flex;
     gap: 40px;
@@ -379,10 +399,8 @@ body {
     padding: 40px 20px;
 }
 
-/* ============================ */
-/* PROJECT CARD */
-/* ============================ */
 
+/* PROJECT CARD */
 .project-card {
     background-color: #0f2a44;
     border-radius: 25px;
@@ -401,10 +419,8 @@ body {
     padding-bottom: 20px;
 }
 
-/* ============================ */
-/* IMAGE */
-/* ============================ */
 
+/* IMAGE */
 .project-card img {
     width: 100%;
     height: 180px;
@@ -413,14 +429,12 @@ body {
     transition: transform 0.5s ease;
 }
 
-/* ============================ */
-/* TEXT */
-/* ============================ */
 
+/* TEXT */
 .project-card h3 {
     margin: 15px 10px 10px;
     font-size: 1.4rem;
-    color: #ffd700;
+    color: #8400ff;
 }
 
 .project-card p {
@@ -430,10 +444,8 @@ body {
     line-height: 1.5;
 }
 
-/* ============================ */
-/* VIEW MORE BUTTON */
-/* ============================ */
 
+/* VIEW MORE BUTTON */
 .view-more {
     margin-top: auto;
     margin-bottom: 10px;
@@ -454,20 +466,39 @@ body {
 
     position: relative;
     overflow: hidden;
+
     transition: all 0.4s ease;
+    z-index: 1;
 }
 
-/* Hover */
+/* Sliding color layer */
+.view-more::before {
+    content: "";
+    position: absolute;
+    top: 0;
+    left: -100%;
+    width: 100%;
+    height: 100%;
+
+    background: linear-gradient(135deg, #0077ff, #00e5ff);
+    transition: left 0.4s ease;
+    z-index: -1;
+}
+
+/* Hover effect */
+.view-more:hover::before {
+    left: 0;
+}
+
 .view-more:hover {
-    color: #fff;
+    color: #ffffff;
     transform: translateY(-3px) scale(1.05);
     box-shadow: 0 0 25px #00e5ff;
 }
 
-/* ============================ */
-/* CARD HOVER */
-/* ============================ */
 
+
+/* CARD HOVER */
 .project-card:hover {
     transform: translateY(-10px) scale(1.05);
 }
@@ -476,15 +507,12 @@ body {
     transform: scale(1.1);
 }
 
-.project-card:hover h3,
-.project-card:hover p {
+.project-card:hover h3{
     color: #ffec99;
 }
 
-/* ============================ */
-/* NAV BUTTONS < > */
-/* ============================ */
 
+/* NAV BUTTONS < > */
 .nav-btn {
     background: rgba(0, 229, 255, 0.15);
     border: 2px solid #00e5ff;
@@ -494,11 +522,9 @@ body {
     height: 48px;
     border-radius: 50%;
     cursor: pointer;
-
     display: flex;
     align-items: center;
     justify-content: center;
-
     transition: 0.3s ease;
     z-index: 10;
 }
@@ -509,17 +535,15 @@ body {
 }
 
 .prev {
-    margin-right: 10px;
+    margin-right: 5px;
 }
 
 .next {
-    margin-left: 10px;
+    margin-left: 5px;
 }
 
-/* ============================ */
-/* ANIMATION */
-/* ============================ */
 
+/* ANIMATION */
 @keyframes slideLeftIn {
     from {
         opacity: 0;
@@ -1158,4 +1182,70 @@ section {
         width: 100%;
         max-width: 350px;
     }
+}
+
+
+/**/
+/* Hamburger icon */
+.menu-toggle {
+    display: none;
+    flex-direction: column;
+    cursor: pointer;
+    position: fixed;
+    top: 20px;
+    right: 20px;
+    z-index: 1001;
+}
+
+.menu-toggle span {
+    width: 30px;
+    height: 3px;
+    background: #00ff08;
+    margin: 5px 0;
+    transition: 0.4s;
+    box-shadow: 0 0 8px #00ff08;
+}
+
+/* Mobile view */
+@media (max-width: 768px) {
+    .menu-toggle {
+        display: flex;
+    }
+
+    .navbar {
+        position: fixed;
+        top: 0;
+        right: -100%;
+        width: 100%;
+        height: 100vh;
+        background: #081b29;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        justify-content: center;
+        gap: 25px;
+        transition: 0.4s ease;
+        z-index: 1000;
+    }
+
+    .navbar.active {
+        right: 0;
+    }
+
+    .navbar a {
+        font-size: 26px;
+    }
+}
+
+/* Animate hamburger to X */
+.menu-toggle.active span:nth-child(1) {
+    transform: rotate(45deg) translate(5px, 6px);
+}
+
+.menu-toggle.active span:nth-child(2) {
+    opacity: 0;
+}
+
+.menu-toggle.active span:nth-child(3) {
+    transform: rotate(-45deg) translate(6px, -6px);
 }
